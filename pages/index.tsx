@@ -1,17 +1,12 @@
-import Head from "next/head";
-import { NextPage } from "next";
-import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
 import { MainLayout } from "@/components/layouts";
-import { Header } from "@/components/common";
 import { NextPageWithLayout } from "@/models/common";
 
-const inter = Inter({ subsets: ["latin"] });
 
 const Home: NextPageWithLayout = () => {
   return (
-    <div>
-      <h1>HomePage</h1>
+    <div className="flex flex-col items-center justify-center h-full">
+      <h2 className="text-6xl font-semibold">Alex Smith</h2>
+      <h4 className="text-xl text-[#aaa]">Frontend - Developer</h4>
     </div>
   );
 };

@@ -1,10 +1,15 @@
 import { MainLayout } from "@/components/layouts";
-import * as React from "react";
 
 export interface AboutMeProps {}
 
-export default function WorksPage(props: AboutMeProps) {
-  return <div>About Me</div>;
+export default function AboutMe(props: AboutMeProps) {
+  return (
+    <div className="about-me">
+      <div className="about-title">
+        <h2>About <span>Me</span></h2>
+      </div>
+    </div>
+  );
 }
 
-WorksPage.Layout = MainLayout;
+AboutMe.Layout = MainLayout;
