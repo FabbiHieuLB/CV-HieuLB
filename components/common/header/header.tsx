@@ -18,7 +18,7 @@ export function HeaderDesktop() {
     <div className="inline-block float-left w-full max-w-[380px] h-full max-h-[80vh] text-center overflow-auto px-[30px] pt-[70px] pb-[45px]">
       <div className="header-content">
         <div className="header-photo relative w-[180px] mt-[0px] mr-auto mb-[30px] ml-auto ">
-          <img src="./images/main_photo.jpg" className="rounded-[300px]" />
+          <img src="/images/main_photo.jpg" className="rounded-[300px]" />
         </div>
         <div className="header-titles">
           <h2 className="text-4xl font-semibold text-[#f5f5f5] mt-[5px] mr-[0px] mb-[7px] ml-[0px] ">
@@ -42,22 +42,22 @@ export function HeaderDesktop() {
           </Link>
         </li>
         <li className="p-[10px] ">
-          <Link href="/">
+          <Link href="/resume">
             <FontAwesomeIcon className="text-3xl " icon={faHatCowboy} />
           </Link>
         </li>
         <li className="p-[10px] ">
-          <Link href="/">
+          <Link href="/portfolio">
             <FontAwesomeIcon className="text-3xl " icon={faMedkit} />
           </Link>
         </li>
         <li className="p-[10px] ">
-          <Link href="/">
+          <Link href="/blog">
             <FontAwesomeIcon className="text-3xl " icon={faMobile} />
           </Link>
         </li>
         <li className="p-[10px] ">
-          <Link href="/">
+          <Link href="/contact">
             <FontAwesomeIcon className="text-3xl " icon={faEnvelope} />
           </Link>
         </li>

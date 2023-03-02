@@ -8,7 +8,7 @@ export function MainLayout({ children }: LayoutProps) {
       <div className="relative w-full max-w-screen-xl bg-[#444] rounded-3xl min-h-[80vh] my-[10vh] mx-auto">
         <Header />
 
-        <div className="main-content absolute right-0 bg-black w-full h-full max-w-[900px] rounded-3xl ">
+        <div className="main-content absolute right-0 bg-[#222] w-full h-full max-w-[900px] rounded-3xl p-[60px] overflow-auto">
           {children}
         </div>
       </div>

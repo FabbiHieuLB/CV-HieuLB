@@ -1,7 +1,6 @@
 import { MainLayout } from "@/components/layouts";
 import { NextPageWithLayout } from "@/models/common";
 
-
 const Home: NextPageWithLayout = () => {
   return (
     <div className="flex flex-col items-center justify-center h-full">
