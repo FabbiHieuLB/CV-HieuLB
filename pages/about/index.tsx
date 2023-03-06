@@ -7,11 +7,11 @@ export interface AboutMeProps {}
 export default function AboutMe(props: AboutMeProps) {
   return (
     <div className="about-me">
-      <div className="about-title mb-[60px]">
-        <h2 className="text-3xl font-semibold mb-[60px]">
+      <div className="mb-[60px]">
+        <h2 className=" z-10 relative text-3xl font-semibold mb-[60px] after:absolute after:opacity-50 after:top-[15px] after:left-[15%] after:h-[30px] after:w-[50px] after:bg-gradient-to-r from-cyan-500 to-cyan-500 ">
           About <span className="text-[#04b4e0]">Me</span>
         </h2>
-        <div className="about-main flex">
+        <div className="flex">
           <div className="content-content w-[60%] mr-[30px]">
             <p className="text-[#d5d5d5] text-base ">
               Proin volutpat mauris ac pellentesque pharetra. Suspendisse congue
@@ -57,7 +57,7 @@ export default function AboutMe(props: AboutMeProps) {
         </div>
       </div>
 
-      <div className="introduce mb-[60px]">
+      <div className="mb-[60px]">
         <h3 className="text-xl text-[#eee] font-semibold mb-5">
           What <span className="text-[#04b4e0]">I Do</span>
         </h3>
@@ -140,8 +140,8 @@ export default function AboutMe(props: AboutMeProps) {
         </div>
       </div>
 
-      <div className="testimonials grid grid-cols-2 gap-8">
-        <div className="testimonials-item px-5">
+      <div className="grid grid-cols-2 gap-8">
+        <div className="px-5">
           <div className="testimonials-image mb-4">
             <img
               src="./images/testimonial-2.jpg"
@@ -172,22 +172,22 @@ export default function AboutMe(props: AboutMeProps) {
           </div>
         </div>
 
-        <div className="testimonials-item px-5">
-          <div className="testimonials-image mb-4">
+        <div className="px-5">
+          <div className="mb-4">
             <img
               src="./images/testimonial-2.jpg"
               alt=""
               className="w-[90px] h-[90px] rounded-full"
             />
           </div>
-          <div className="testimonials-text mb-4">
+          <div className="mb-4">
             <span className="italic text-base text-[#d5d5d5]">
               Vivamus at molestie dui, eu ornare orci. Curabitur vel egestas
               dolor. Nulla condimentum nunc sit amet urna tempus finibus. Duis
               mollis leo id ligula pellentesque, at vehicula dui ultrices.
             </span>
           </div>
-          <div className="testimonials-info flex justify-between">
+          <div className="flex justify-between">
             <div className="info-author">
               <h3 className="font-semibold text-[#eee]">Robert Watkins</h3>
               <p className="text-sm font-light text-[#a5a6a7]">
