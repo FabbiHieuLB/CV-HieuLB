@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import useFetch from "@/components/hooks/useFetch";
+import { useRouter } from "next/router";
 
 const items = [
   { id: 1, name: "Detailed Pr2", category: "detailed" },
@@ -10,6 +12,11 @@ const items = [
 ];
 
 const TabFilterUI = () => {
+  const router = useRouter();
+  const { loading, error, data } = useFetch(
+    `http://localhost:1337/api/categories`
+  );
+
   const [activeTab, setActiveTab] = useState("all");
   const [filteredItems, setFilteredItems] = useState(items);
 
@@ -23,6 +30,8 @@ const TabFilterUI = () => {
     }
   };
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error...</p>;
   return (
     <div>
       <div>

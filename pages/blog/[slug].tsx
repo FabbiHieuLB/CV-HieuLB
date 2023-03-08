@@ -2,14 +2,25 @@ import { MainLayout } from "@/components/layouts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faUser } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import useFetch from "@/components/hooks/useFetch";
+import { useRouter } from "next/router";
 
 export interface BlogDetailPageProps {}
 
 export default function BlogDetailPage(props: BlogDetailPageProps) {
+  const router = useRouter();
+  console.log("----Blog detail router----", router);
+
+  const { loading, error, data } = useFetch(
+    `http://localhost:1337/api/blogs/` + router.query.slug
+  );
+  console.log("Blog Detail", data);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error...</p>;
   return (
     <article>
       <div className=" relative bg-[#b2b2b2]">
-        {/* <Image src="./images/blog_post_1_full.jpg" /> */}
         <img
           src="../images/blog_post_1_full.jpg"
           alt=""
@@ -26,73 +37,39 @@ export default function BlogDetailPage(props: BlogDetailPageProps) {
             </span>
           </div>
 
-          <h2 className="text-3xl mx-[0px] my-[15px] text-[#eee] font-semibold">
-            Best Practices for Animated Progress Indicators
-          </h2>
+          <h2 className="text-3xl mx-[0px] my-[15px] text-[#eee] font-semibold"></h2>
         </header>
 
         <div className="text-base text-[#d5d5d5]">
-          <p className="mb-[10px]">
-            Nulla nulla nisl, sodales ac nulla ac, consequat vulputate purus.
-            Curabitur tincidunt ipsum vel nibh rutrum accumsan. Nunc ullamcorper
-            posuere leo, vitae aliquet risus pharetra in. Integer turpis eros,
-            iaculis et mi non, pulvinar egestas leo. Etiam sagittis ex turpis,
-            vitae cursus tortor interdum eu. Quisque ultrices nunc eget erat
-            vestibulum euismod. Ut mauris nisi, facilisis at arcu nec, facilisis
-            porttitor lorem.
-          </p>
-          <p className="mb-[10px]">
-            Vivamus vitae neque molestie, porta libero sed, tincidunt leo. In
-            nec posuere odio, id rhoncus lorem. Proin id erat ut dolor
-            condimentum viverra. Praesent viverra sed dolor ac luctus. Praesent
-            placerat id lorem quis lacinia.
-          </p>
+          <p className="mb-[10px]">{data.data.attributes.textOne}</p>
+          <p className="mb-[10px]">{data.data.attributes.textTwo}</p>
 
           <blockquote className="mb-[10px] px-[20px] py-[15px] my-[20px] mx-0 border-l-2 border-solid italic">
-            Maecenas id finibus felis. Etiam vitae nibh et felis efficitur
-            pellentesque. Mauris suscipit sapien nunc, a lacinia nibh feugiat
-            ut. In hac habitasse platea dictumst.
+            {data.data.attributes.textThree}
             <footer className="quote-author">
-              <span>Larry L. Johnson</span>
+              <span>{data.data.attributes.author}</span>
             </footer>
           </blockquote>
 
-          <p className="mb-[10px]">
-            Etiam interdum vulputate risus, vitae elementum neque consectetur
-            sed. Donec at risus dui. Ut in suscipit neque. Vestibulum sit amet
-            lobortis magna, commodo venenatis ante. Cras molestie, ex a auctor
-            lacinia, risus est aliquam risus, sit amet semper purus tortor id
-            ante. Donec lacus ipsum, porttitor et libero a, fringilla auctor
-            quam. Sed in nisl id libero tincidunt aliquet. Aenean dui ipsum,
-            auctor ut leo ut, semper dignissim lacus. Suspendisse faucibus
-            viverra consequat. Maecenas efficitur massa vel eros sagittis
-            dapibus. Nam lobortis mi in turpis hendrerit eleifend. Nulla non
-            massa felis.
-          </p>
+          <p className="mb-[10px]">{data.data.attributes.textFour}</p>
 
-          <p className="mb-[10px]">
-            Donec sit amet dolor ante. Vivamus vel massa accumsan, faucibus quam
-            quis, convallis velit. Aliquam erat volutpat. Integer imperdiet diam
-            quis arcu venenatis, quis sagittis nibh rhoncus. Donec non nisi
-            scelerisque, sodales metus quis, accumsan mauris. Curabitur volutpat
-            risus rutrum erat condimentum tristique. Nullam at felis diam.
-            Quisque dictum felis non ante pretium mollis. Aliquam turpis neque,
-            varius nec diam a, aliquam pulvinar diam. Interdum et malesuada
-            fames ac ante ipsum primis in faucibus. Sed ipsum libero, aliquet
-            sed bibendum faucibus, semper a dui.
-          </p>
+          <p className="mb-[10px]">{data.data.attributes.textFive}</p>
         </div>
 
         <div className="inline-block w-full bg-[#333] border-solid border-[#444] border-[1px] px-[10px] py-[8px] mt-[30px] text-[#b5b5b5] text-base">
           <span>
             <a href="#" rel="bookmark">
               <FontAwesomeIcon icon={faClock} className="" />
-              <span className="entry-date"> March 16, 2020</span>
+              <span className="entry-date">
+                {" "}
+                {data.data.attributes.createdAt}
+              </span>
             </a>
           </span>
           <span>
             <a href="#" rel="author">
-              <FontAwesomeIcon icon={faUser} className="" /> LMPixels
+              <FontAwesomeIcon icon={faUser} className="" />{" "}
+              {data.data.attributes.author}
             </a>
           </span>
 
