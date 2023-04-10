@@ -7,7 +7,9 @@ export interface BlogPostProps {}
 
 export default function BlogPost(props: BlogPostProps) {
   const router = useRouter();
-  const { loading, error, data } = useFetch(`http://localhost:1337/api/blogs`);
+  const { loading, error, data }: any = useFetch(
+    `http://localhost:1337/api/blogs`
+  );
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
@@ -17,7 +19,7 @@ export default function BlogPost(props: BlogPostProps) {
         <h2 className="text-4xl font-semibold text-[#eee] mb-10">Blog</h2>
       </div>
       <div className="grid grid-cols-2 gap-8">
-        {data.data.map((blog) => (
+        {data.data.map((blog: any) => (
           <div
             key={blog.attributes.id}
             onClick={() => {
