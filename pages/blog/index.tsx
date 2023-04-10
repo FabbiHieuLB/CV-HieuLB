@@ -8,7 +8,6 @@ export interface BlogPostProps {}
 export default function BlogPost(props: BlogPostProps) {
   const router = useRouter();
   const { loading, error, data } = useFetch(`http://localhost:1337/api/blogs`);
-  console.log("Blogggg", data);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
