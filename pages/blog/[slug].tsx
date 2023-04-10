@@ -11,7 +11,7 @@ export default function BlogDetailPage(props: BlogDetailPageProps) {
   const router = useRouter();
   console.log("----Blog detail router----", router);
 
-  const { loading, error, data } = useFetch(
+  const { loading, error, data }: any = useFetch(
     `http://localhost:1337/api/blogs/` + router.query.slug
   );
   console.log("Blog Detail", data);
